@@ -1,81 +1,58 @@
-CoinSenseAI
-Your AI-Powered Crypto Portfolio & News Bias Analyzer
+# CoinSenseAI 💹
 
-Author: Muhammad Ahmad Khattak
+## 📌 Overview
+The **AI Crypto Portfolio Assistant** is an intelligent crypto analysis tool that helps users make informed investment decisions.  
+It uses **CrewAI/LangChain agents** to perform real-time **fundamental** and **technical** analysis on cryptocurrencies, powered by the **CoinGecko API**.  
 
-📌 Overview
-CoinSenseAI is an intelligent web application that combines real-time crypto portfolio analysis with fake news & bias detection for cryptocurrency-related headlines.
-It’s built to help investors make smarter, data-driven decisions and avoid falling for misleading information in the volatile crypto market.
+This project was built as part of the **AI Bootcamp (atomcamp x NUST) Capstone Project**, demonstrating an end-to-end agentic application with:
+- **Gradio UI** frontend
+- **FastAPI backend**
+- **CrewAI agent layer**
+- **Live deployment** on Hugging Face Spaces / Replit
+- **Secure secrets management** for API keys
 
-🚀 Features
-Crypto Portfolio Analysis:
+---
 
-Fetches live crypto prices from CoinGecko API
+## 🎯 Problem Statement
+Cryptocurrency investors often struggle to:
+- Track **real-time market trends**
+- Understand **technical indicators** (RSI, MACD, Moving Averages)
+- Filter out **fake news and hype-based speculation**
 
-Analyzes portfolio performance
+Our AI assistant solves this by providing **clear, data-backed insights** and **automated portfolio rebalancing suggestions**.
 
-Gives market trend insights
+---
 
-Fake News & Bias Detection:
+## 🚀 Features
+- 📊 **Real-Time Crypto Data** – Fetches market prices, volume, and market cap from CoinGecko.
+- 📈 **Technical Analysis** – Calculates RSI, MACD, and Moving Averages.
+- 🤖 **AI Insights** – CrewAI agent explains market trends and suggests actions.
+- 🔄 **Portfolio Rebalancing** – Automatically suggests allocation changes.
+- 📅 **Historical Analysis** – Uses CoinGecko historical data for better trend prediction.
+- 📰 **News Sentiment Analysis** – Detects FUD, hype, or neutral market news.
 
-Uses AI to detect misinformation and bias in crypto-related news
+---
 
-Returns bias percentage and reasoning
+## 🛠️ Tech Stack
+| Layer         | Tool/Framework |
+|---------------|---------------|
+| **Frontend**  | Gradio |
+| **Backend**   | FastAPI |
+| **Agent Layer** | CrewAI / LangChain |
+| **Data API**  | CoinGecko API |
+| **Deployment**| Hugging Face Spaces / Replit |
+| **Secrets**   | `python-dotenv` |
 
-Simple & Fast UI:
+---
 
-Clean Gradio interface
-
-Real-time outputs for both modes
-
-🛠️ Tech Stack
-Frontend: Gradio
-
-Backend: FastAPI
-
-Agent Framework: CrewAI / LangChain (planned integration)
-
-Data Source: CoinGecko API
-
-Deployment: HuggingFace Spaces
-
-📂 Project Structure
-bash
-Copy code
-CoinSenseAI/
-│── api_crypto.py       # Portfolio analysis backend logic
-│── api_news.py         # Fake news & bias detection backend logic
-│── app.py              # Main Gradio UI
-│── requirements.txt    # Dependencies
-│── README.md           # Project documentation
-⚡ Installation
-bash
-Copy code
-# 1. Clone this repository
-  git clone https://github.com/Tradinator1/coinsenseai.git
-  cd coinsenseai
-
-# 2. Install dependencies
-  pip install -r requirements.txt
-
-# 3. Run locally
-  python app.py
-
-🎯 Usage
-Portfolio Mode:
-
-Enter your crypto holdings
-
-Get real-time market value + trend insights
-
-News Analysis Mode:
-
-Paste any crypto-related news headline
-
-Instantly detect bias and misinformation
-
-👨‍💻 Author
-Muhammad Ahmad Khattak
-Data Science & AI Enthusiast | Crypto Analyst | Full-Stack AI Developer
-
-
+## 🖥️ Architecture Diagram
+```mermaid
+flowchart LR
+    U[User] -->|Inputs Coin/Portfolio| G[Gradio UI]
+    G -->|Request| F[FastAPI Backend]
+    F -->|Calls Agent| A[CrewAI/LangChain Agent]
+    A -->|Fetch Data| C[CoinGecko API]
+    A -->|Process Data| TA[Technical Indicators]
+    A -->|Generate Response| F
+    F -->|Output| G
+    G -->|Displays| U
